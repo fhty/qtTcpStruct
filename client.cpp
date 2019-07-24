@@ -16,14 +16,10 @@ Client::Client(QWidget *parent) :
     connect(mTcpSocket,&QTcpSocket::readyRead,this,[&](){
         QByteArray arr=mTcpSocket->readAll();
         qDebug()<<"receive:"<<arr.size();
-        char *p=new char[244]();
-        memcpy(p,arr.data(),244);
-        mRecv=(ImgData *)arr.data();
-        //char *t=new char[16]();
-
-
-        //img=(ImgData*)t;
-        qDebug()<< mRecv->Tran<<","<<mRecv->Setting<<","<<mRecv->ImgID;
+        char *p=new char[arr.size()]();
+        memcpy(p,arr.data(),arr.size());
+        mRecv=(ImgDataA *)p;
+        qDebug()<< mRecv->Tran<<","<<mRecv->ImgID<<","<<mRecv->Setting;
     });
 }
 

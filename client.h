@@ -5,13 +5,13 @@
 #include <QWidget>
 #include <QTcpSocket>
 
-//struct ImgData
-//{
-//    int Size;
-//    char Setting[160];
-//    char Tran[16];
-//    char ImgID[64];
-//};
+struct ImgDataA
+{
+    int Size;
+    char Setting[160];
+    char Tran[16];
+    char ImgID[64];
+};
 
 namespace Ui {
 class Client;
@@ -31,7 +31,7 @@ private slots:
 private:
     Ui::Client *ui;
     QTcpSocket *mTcpSocket;
-    ImgData *mRecv;
+    ImgDataA *mRecv;
 };
 
 #endif // CLIENT_H
