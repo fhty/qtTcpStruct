@@ -4,14 +4,15 @@
 #include "widget.h"
 #include <QWidget>
 #include <QTcpSocket>
+#include <QFile>
 
-struct ImgDataA
+struct ImgInfoR
 {
-    int Size;
-    char Setting[160];
+    unsigned long Size;
+    char Setting[16];
     char Tran[16];
-    char ImgID[64];
 };
+static unsigned char *gImgBufR=nullptr;
 
 namespace Ui {
 class Client;
@@ -31,7 +32,8 @@ private slots:
 private:
     Ui::Client *ui;
     QTcpSocket *mTcpSocket;
-    ImgDataA *mRecv;
+    ImgInfoR *mRecv;
+    QFile file;
 };
 
 #endif // CLIENT_H

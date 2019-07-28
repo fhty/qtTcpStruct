@@ -26,11 +26,13 @@ CONFIG += c++11
 
 SOURCES += \
         client.cpp \
+        imgbin.cpp \
         main.cpp \
         widget.cpp
 
 HEADERS += \
         client.h \
+        imgbin.h \
         widget.h
 
 FORMS += \

@@ -4,14 +4,16 @@
 #include <QWidget>
 #include <QTcpSocket>
 #include <QTcpServer>
+#include <QTimer>
+#include <QFile>
 
-struct ImgData
+struct ImgInfo
 {
-    int Size;
-    char Setting[160];
+    unsigned long Size;
+    char Setting[16];
     char Tran[16];
-    char ImgID[64];
 };
+static unsigned char *gImgBuf=nullptr;
 
 namespace Ui {
 class Widget;
@@ -31,9 +33,11 @@ private slots:
 private:
     Ui::Widget *ui;
 
-    ImgData *m_imgData;
+    ImgInfo *mImgInfo;
     QTcpServer *tcpServer;
     QTcpSocket *tcpSocket;
+    QTimer timer;
+    QFile *file;
 };
 
 #endif // WIDGET_H
